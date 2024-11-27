@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class MenuVetor {
+    
+    public static void dadosVetor(int[] vetor) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite os elementos do vetor:");
+        for (int i = 0; i < vetor.length; i++) {
+            System.out.print("Elemento " + (i + 1) + ": ");
+            vetor[i] = scanner.nextInt();
+        }
+    }
+
+    public static void ordenaVetor(int[] vetor) {
+        for (int i = 0; i < vetor.length - 1; i++) {
+            for (int j = i + 1; j < vetor.length; j++) {
+                if (vetor[i] > vetor[j]) {
+                    int temp = vetor[i];
+                    vetor[i] = vetor[j];
+                    vetor[j] = temp;
+                }
+            }
+        }
+        System.out.println("Vetor ordenado com sucesso!");
+    }
+
+    public static void imprimeVetor(int[] vetor) {
+        System.out.println("Vetor atual:");
+        for (int num : vetor) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] vetor = new int[5];
+        boolean sair = false;
+
+        while (!sair) {
+            
+            System.out.println("\nMENU VETOR - FUNCAO");
+            System.out.println("1. Dados do VETOR");
+            System.out.println("2. Ordena VETOR");
+            System.out.println("3. Imprime VETOR");
+            System.out.println("4. Sai do programa");
+            System.out.print("OPÇÃO: ");
+            int opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    dadosVetor(vetor);
+                    break;
+                case 2:
+                    ordenaVetor(vetor);
+                    break;
+                case 3:
+                    imprimeVetor(vetor);
+                    break;
+                case 4:
+                    sair = true;
+                    System.out.println("Saindo do programa...");
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
+            }
+        }
+
+        scanner.close();
+    }
+}
