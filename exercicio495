@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class OrdenaVetor {
+    
+    public static void ordenarVetor(char[] vetor) {
+        for (int i = 0; i < vetor.length - 1; i++) {
+            for (int j = i + 1; j < vetor.length; j++) {
+                if (vetor[i] > vetor[j]) {
+                    char temp = vetor[i];
+                    vetor[i] = vetor[j];
+                    vetor[j] = temp;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o tamanho do vetor: ");
+        int tamanho = scanner.nextInt();
+        char[] vetor = new char[tamanho];
+
+        System.out.println("Digite os caracteres do vetor:");
+        for (int i = 0; i < tamanho; i++) {
+            System.out.print("Caractere " + (i + 1) + ": ");
+            vetor[i] = scanner.next().charAt(0);
+        }
+
+        ordenarVetor(vetor);
+
+        System.out.println("Vetor ordenado: ");
+        for (char c : vetor) {
+            System.out.print(c + " ");
+        }
+
+        scanner.close();
+    }
+}
