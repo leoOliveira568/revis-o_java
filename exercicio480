@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class NumeroCapicua {
+    
+    public static boolean ehCapicua(int numero) {
+        String strNumero = Integer.toString(numero);
+        String inverso = "";
+
+        for (int i = strNumero.length() - 1; i >= 0; i--) {
+            inverso += strNumero.charAt(i);
+        }
+
+        return strNumero.equals(inverso);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número para verificar se é capicua: ");
+        int numero = scanner.nextInt();
+
+        if (ehCapicua(numero)) {
+            System.out.println("O número " + numero + " é capicua.");
+        } else {
+            System.out.println("O número " + numero + " não é capicua.");
+        }
+
+        scanner.close();
+    }
+}
