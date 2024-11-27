@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+public class MenuVetores {
+    
+    public static void dadosVetor(int[] vetor, String nomeVetor) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite os elementos do vetor " + nomeVetor + ":");
+        for (int i = 0; i < vetor.length; i++) {
+            System.out.print("Elemento " + (i + 1) + ": ");
+            vetor[i] = scanner.nextInt();
+        }
+    }
+
+    public static void imprimeVetores(int[] vetorA, int[] vetorB) {
+        System.out.println("Vetor A:");
+        for (int num : vetorA) {
+            System.out.print(num + " ");
+        }
+        System.out.println("\nVetor B:");
+        for (int num : vetorB) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void somaVetores(int[] vetorA, int[] vetorB) {
+        System.out.println("Soma dos vetores:");
+        for (int i = 0; i < vetorA.length; i++) {
+            System.out.print((vetorA[i] + vetorB[i]) + " ");
+        }
+        System.out.println();
+    }
+
+    public static void subtraiVetores(int[] vetorA, int[] vetorB) {
+        System.out.println("Subtração dos vetores (A - B):");
+        for (int i = 0; i < vetorA.length; i++) {
+            System.out.print((vetorA[i] - vetorB[i]) + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] vetorA = new int[5];
+        int[] vetorB = new int[5];
+        boolean sair = false;
+
+        while (!sair) {
+            
+            System.out.println("\nVETORES");
+            System.out.println("1. Dados do VETOR A");
+            System.out.println("2. Dados do VETOR B");
+            System.out.println("3. Imprime VETORES");
+            System.out.println("4. Soma VETORES");
+            System.out.println("5. Subtrai VETORES");
+            System.out.println("6. Sai do programa");
+            System.out.print("OPÇÃO: ");
+            int opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    dadosVetor(vetorA, "A");
+                    break;
+                case 2:
+                    dadosVetor(vetorB, "B");
+                    break;
+                case 3:
+                    imprimeVetores(vetorA, vetorB);
+                    break;
+                case 4:
+                    somaVetores(vetorA, vetorB);
+                    break;
+                case 5:
+                    subtraiVetores(vetorA, vetorB);
+                    break;
+                case 6:
+                    sair = true;
+                    System.out.println("Saindo do programa...");
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
+            }
+        }
+
+        scanner.close();
+    }
+}
