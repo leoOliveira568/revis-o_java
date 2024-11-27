@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class DobroNumeros {
+    public static int calcularDobro(int numero) {
+        return numero * 2;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite três números:");
+        System.out.print("Primeiro número: ");
+        int n1 = scanner.nextInt();
+        System.out.print("Segundo número: ");
+        int n2 = scanner.nextInt();
+        System.out.print("Terceiro número: ");
+        int n3 = scanner.nextInt();
+
+        System.out.println("O dobro de " + n1 + " é: " + calcularDobro(n1));
+        System.out.println("O dobro de " + n2 + " é: " + calcularDobro(n2));
+        System.out.println("O dobro de " + n3 + " é: " + calcularDobro(n3));
+
+        scanner.close();
+    }
+}
